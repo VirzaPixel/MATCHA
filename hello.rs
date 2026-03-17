@@ -1,20 +1,12 @@
-struct Greeter {
-    name: String,
-}
+struct Greeter;
 
 impl Greeter {
-    fn new(name: &str) -> Greeter {
-        Greeter {
-            name: name.to_string(),
-        }
-    }
-
     fn greet(&self) {
-        println!("Hello, World from Rust OOP! (Greetings to {})", self.name);
+        println!("Hello World");
     }
 }
 
 fn main() {
-    let greeter = Greeter::new("GitHub Automation");
+    let greeter = Greeter;
     greeter.greet();
 }

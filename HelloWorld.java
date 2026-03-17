@@ -1,16 +1,10 @@
 public class HelloWorld {
-    private String name;
-
-    public HelloWorld(String name) {
-        this.name = name;
-    }
-
     public void greet() {
-        System.out.println("Hello, World from Java OOP! (Greetings to " + this.name + ")");
+        System.out.println("Hello World");
     }
 
     public static void main(String[] args) {
-        HelloWorld greeter = new HelloWorld("GitHub Automation");
+        HelloWorld greeter = new HelloWorld();
         greeter.greet();
     }
 }

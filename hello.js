@@ -1,12 +1,8 @@
 class Greeter {
-    constructor(name) {
-        this.name = name;
-    }
-
     greet() {
-        console.log(`Hello, World from JavaScript OOP! (Greetings to ${this.name})`);
+        console.log("Hello World");
     }
 }
 
-const greeter = new Greeter("GitHub Automation");
+const greeter = new Greeter();
 greeter.greet();

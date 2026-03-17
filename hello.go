@@ -2,15 +2,13 @@ package main
 
 import "fmt"
 
-type Greeter struct {
-    Name string
-}
+type Greeter struct{}
 
 func (g Greeter) Greet() {
-    fmt.Printf("Hello, World from Go OOP! (Greetings to %s)\n", g.Name)
+    fmt.Println("Hello World")
 }
 
 func main() {
-    greeter := Greeter{Name: "GitHub Automation"}
+    greeter := Greeter{}
     greeter.Greet()
 }
