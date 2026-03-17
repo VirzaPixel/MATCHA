@@ -24,7 +24,7 @@ jobs:
           do
             echo "Push number $i at $(date)" > last_update.txt
             git add last_update.txt
-            git commit -m "chore: automated push $i/8 at $(date)"
+            git commit -m "GOO GREENNNNN $i/8 at $(date)"
             git push
             # Optional: sleep for a few seconds to ensure distinct timestamps
             sleep 2
