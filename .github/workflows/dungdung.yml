@@ -16,15 +16,32 @@ jobs:
 
       - name: Sequential Pushes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "VirzaPixezz"
+          git config --global user.email "virzarizky151@gmail.com"
+          
+          # Pull latest changes to avoid conflicts if the user pushed recently
+          git pull --rebase origin main
+
+          # Maintain a list of files to randomly modify
+          files=("HelloWorld.java" "hello.cpp" "hello.go" "hello.js" "hello.php" "hello.py" "hello.rb" "hello.rs")
           
           for i in {1..8}
           do
-            echo "I LOVE MATCHAAAAAA $i/8 at $(date)" > last_update.txt
-            git add last_update.txt
-            git commit -m "I LOVE MATCHAAAAAA $i/8 at $(date)"
-            git push
-            # Optional: sleep for a few seconds to ensure distinct timestamps
+            # Pick a random file from the repository to modify slightly
+            # and replace the last update comment so it counts as a real code change
+            target_file=${files[$RANDOM % ${#files[@]}]}
+            
+            if [[ "$target_file" == *.py || "$target_file" == *.rb ]]; then
+                sed -i '/# Updated at/d' "$target_file"
+                echo "# Updated at $(date)" >> "$target_file"
+            else
+                sed -i '/\/\/ Updated at/d' "$target_file"
+                echo "// Updated at $(date)" >> "$target_file"
+            fi
+            
+            git add .
+            git commit -m "I LOVE MATCHAAAAAA $i/8 at $(date) [modified $target_file]"
+            git push origin main
+            # Sleep a bit to ensure unique timestamps for contribution records
             sleep 2
           done
