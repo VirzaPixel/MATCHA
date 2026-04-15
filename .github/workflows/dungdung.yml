@@ -40,7 +40,7 @@ jobs:
             fi
             
             git add .
-            git commit -m "I LOVE MATCHAAAAAA $i/8 at $(date) [modified $target_file]"
+            git commit --author="${{ secrets.GIT_NAME }} <${{ secrets.GIT_EMAIL }}>" -m "I LOVE MATCHAAAAAA $i/8"
             git push origin main
             # Sleep a bit to ensure unique timestamps for contribution records
             sleep 2
